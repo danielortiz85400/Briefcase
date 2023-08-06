@@ -1,4 +1,6 @@
 @import './base.css';
+@import url("https://fonts.googleapis.com/css2?family=Slackey&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 #app {
   max-width: 1280px;
@@ -32,4 +34,33 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
+}
+
+
+ /* Custom clases */
+ .bg-gradient {
+  background-image: linear-gradient(to right, #ECE9E6 0%, #FFFFFF 51%, #ECE9E6 100%);
+  background-size: 200% auto;
+  transition: 0.5s;
+}
+
+.bg-gradient::hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.text-3d {
+  font-family: "Slackey", cursive;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15), 0 20px 30px rgba(0, 0, 0, 0.15);
+  -webkit-text-stroke: 0.1px #651FFF;
+}
+
+.text-paragraph {
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: 500;
 }

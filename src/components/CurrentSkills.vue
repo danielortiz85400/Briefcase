@@ -1,0 +1,71 @@
+<!--Current Skills-->
+<template>
+    <v-timeline side="end" align="start" class="rounded-lg outline outline-purple-100 elevation-16 pa-3" density="compact"
+        line-color="white" truncate-line="start">
+        <v-timeline-item v-for="(skillsNames, i) in Object.entries(skills)" :key="i" dot-color="grey-darken-3"
+            :size="i % 2 === 0 ? 'x-small' : 'small'" density="compact" elevation="14">
+
+            <div class="d-flex text-paragraph">
+                <div>
+                    <span class="font-medium"> {{ skillsNames[0] }}</span>
+                    <div class="d-flex flex-wrap gap-1 pt-1">
+                        <v-chip v-for="(props, i) in skillsNames[1]" :key="i" class="elevation-12" :color="props.color"
+                            label :prepend-icon="props['prepend-icon']">
+                            {{ props.name }}
+                        </v-chip>
+                    </div>
+                </div>
+            </div>
+        </v-timeline-item>
+    </v-timeline>
+</template>
+
+<script setup lang="ts">
+import { shallowReactive, type DefineComponent } from "vue"
+import IconCss from "./icons/IconCss.vue";
+import IconJavascript from "./icons/IconJavascript.vue";
+import IconVue from "./icons/IconVue.vue";
+import IconNode from "./icons/IconNode.vue";
+import IconMysql from "./icons/IconMysql.vue";
+import IconMongodb from "./icons/IconMongodb.vue";
+import IconTypescript from "./icons/IconTypescript.vue";
+import IconQuasar from "./icons/IconQuasar.vue";
+import IconVuetify from "./icons/IconVuetify.vue";
+import IconNest from "./icons/IconNest.vue";
+import IconPrisma from "./icons/IconPrisma.vue";
+import IconSass from "./icons/IconSass.vue";
+import IconGraphql from "./icons/IconGraphql.vue";
+
+type SkillNames = {
+    [category: string]: {
+        name: string
+        color: string
+        'prepend-icon': DefineComponent<{}, {}, {}, {}, {}>
+    }[]
+}
+
+const skills: SkillNames = shallowReactive({
+
+    ["Frontend: Frameworks - UI Library "]: [
+        { name: "Vue", color: "green-accent-2 ", ['prepend-icon']: IconVue },
+        { name: "Sass", color: "pink-lighten-1", ['prepend-icon']: IconSass },
+        { name: "Css", color: "light-blue-lighten-1", ['prepend-icon']: IconCss },
+        { name: "Typescript", color: "blue-accent-3", ['prepend-icon']: IconTypescript },
+        { name: "Quasar", color: "light-blue-accent-3", ['prepend-icon']: IconQuasar },
+        { name: "Javascript", color: "yellow", ['prepend-icon']: IconJavascript },
+        { name: "Vuetify", color: "blue-lighten-2", ['prepend-icon']: IconVuetify },
+
+    ],
+    ["Backend: Frameworks - ORMS"]: [
+        { name: "Express", color: "green", ['prepend-icon']: IconNode },
+        { name: "Nest", color: "red", ['prepend-icon']: IconNest },
+        { name: "Prisma", color: "indigo-lighten-1", ['prepend-icon']: IconPrisma }
+    ],
+    ["Database-Manager"]: [
+        { name: "Mysql", color: "blue-darken-4", ['prepend-icon']: IconMysql },
+        { name: "MongoDB", color: "", ['prepend-icon']: IconMongodb },
+        { name: "GraphQl", color: "pink-accent-3", ['prepend-icon']: IconGraphql }
+    ]
+})
+</script>
+
